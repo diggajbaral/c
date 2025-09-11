@@ -1,25 +1,18 @@
 #include<stdio.h>
 
+void calculateSum() {
+
+    int x = 5;
+    int y = 15;
+
+    int sum = x + y;
+    printf("The sum of x + y is %d", sum);
+
+}
+
 int main() {
 
-    int guess, code = 7;
-
-    while (1) {
-
-        printf("enter the code : ");
-        scanf("%d", &guess);
-
-        if (guess == code) {
-
-            while (1) {
-                printf("*");
-            }
-            
-        } else {
-            printf("try again\n");
-        }
-
-    }
+    calculateSum();
 
     return 0;
 }
