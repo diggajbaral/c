@@ -1,22 +1,32 @@
 #include<stdio.h>
 
-void swap(int *a, int *b) {
+int findMax(int arr[], int size) {
 
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+    int max = arr[0];
+
+    for (int i = 1; i < size; i++) {
+
+        if (arr[i] > max) {
+
+            max = arr[i];
+
+        }
+
+    }
+
+    return max;
 
 }
 
 int main() {
 
-    int x = 10, y = 20;
+    int numbers[] = {5, 12, 7, 3, 25, 9};
 
-    printf("Before swap : x = %d, y = %d\n", x, y);
+    int length = sizeof(numbers) / sizeof(numbers[0]);
 
-    swap(&x, &y);
+    int maxElement = findMax(numbers, length);
 
-    printf("After swap : x = %d, y = %d\n", x, y);
+    printf("maxinum element in array is %d", maxElement);
 
     return 0;
 }
