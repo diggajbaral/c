@@ -1,25 +1,22 @@
 #include<stdio.h>
 
-unsigned long long factorial(int n) {
+void swap(int *a, int *b) {
 
-    if (n == 0 || n == 1)
-        return 1;
-    else
-        return n * factorial(n - 1);
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 
 }
 
 int main() {
 
-    int num;
-    printf("enter a number : ");
-    scanf("%d", &num);
+    int x = 10, y = 20;
 
-    if (num < 0) {
-        printf("can be for negative number");
-    } else {
-        printf("factorial of %d is %llu", num, factorial(num));
-    }
+    printf("Before swap : x = %d, y = %d\n", x, y);
+
+    swap(&x, &y);
+
+    printf("After swap : x = %d, y = %d\n", x, y);
 
     return 0;
 }
