@@ -1,18 +1,15 @@
 #include<stdio.h>
 
-void calculateSum() {
-
-    int x = 5;
-    int y = 15;
-
-    int sum = x + y;
-    printf("The sum of x + y is %d", sum);
-
+int add(int a, int b) {
+    return a + b;
 }
 
 int main() {
 
-    calculateSum();
+    int x = 5, y = 10;
+    int result = (add(x, y));
+
+    printf("sum of %d and %d is %d\n", x, y, result);
 
     return 0;
 }
