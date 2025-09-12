@@ -1,21 +1,36 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int square(int num);
+int countVowels(const char *str)
+{
 
-int main() {
-    
-    int number, result;
+    int count = 0;
 
-    printf("enter a number : ");
-    scanf("%d", &number);
+    for (int i = 0; str[i] != '\0'; i++)
+    {
 
-    result = square(number);
+        char ch = str[i];
 
-    printf("square of %d is %d", number, result);
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
 
-    return 0;
+            count++;
+
+        }
+    }
+
+    return count;
+
 }
 
-int square(int num) {
-    return num * num;
+int main()
+{
+
+    char input[100];
+
+    printf("Enter a string : ");
+    fgets(input, sizeof(input), stdin);
+
+    int vowelCount = countVowels(input);
+    printf("Number of vowels : %d\n", vowelCount);
+
+    return 0;
 }
