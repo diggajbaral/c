@@ -1,23 +1,21 @@
-#include <stdio.h>
+#include<stdio.h>
 
-int main()
-{
+int square(int num);
 
-    FILE *file;
+int main() {
+    
+    int number, result;
 
-    file = fopen("new_created_file.txt", "w");
+    printf("enter a number : ");
+    scanf("%d", &number);
 
-    if (file == NULL)
-    {
-        printf("Error opening file.\n");
-        return 1;
-    }
-    else
-    {
-        fprintf(file, "Hello World!");
-    }
+    result = square(number);
 
-    fclose(file);
+    printf("square of %d is %d", number, result);
 
     return 0;
+}
+
+int square(int num) {
+    return num * num;
 }
