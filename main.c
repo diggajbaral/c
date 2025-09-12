@@ -1,32 +1,23 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int findMax(int arr[], int size) {
+int main()
+{
 
-    int max = arr[0];
+    FILE *file;
 
-    for (int i = 1; i < size; i++) {
+    file = fopen("new_created_file.txt", "w");
 
-        if (arr[i] > max) {
-
-            max = arr[i];
-
-        }
-
+    if (file == NULL)
+    {
+        printf("Error opening file.\n");
+        return 1;
+    }
+    else
+    {
+        fprintf(file, "Hello World!");
     }
 
-    return max;
-
-}
-
-int main() {
-
-    int numbers[] = {5, 12, 7, 3, 25, 9};
-
-    int length = sizeof(numbers) / sizeof(numbers[0]);
-
-    int maxElement = findMax(numbers, length);
-
-    printf("maxinum element in array is %d", maxElement);
+    fclose(file);
 
     return 0;
 }
