@@ -1,36 +1,21 @@
-#include <stdio.h>
-#include <limits.h>
+#include<stdio.h>
 
-int main()
-{
+int main() {
 
-    int arr[] = {12, 32, 1, 10, 34, 1};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int number[5];
+    int sum = 0;
 
-    int first = INT_MIN, second = INT_MIN;
-
-    for (int i = 0; i < n; i++)
-    {
-
-        if (arr[i] > first)
-        {
-            second = first;
-            first = arr[i];
-        }
-        else if (arr[i] > second && arr[i] != first)
-        {
-            second = arr[i];
-        }
+    printf("Enter 5 integer : \n");
+    for (int i = 0; i < 5; i++) {
+        printf("enter number %d: ", i + 1);
+        scanf("%d", &number[i]);
     }
 
-    if (second == INT_MIN)
-    {
-        printf("no second largest element\n");
+    for (int i = 0; i < 5; i++) {
+        sum += number[i];
     }
-    else
-    {
-        printf("send largest element is %d\n", second);
-    }
+
+    printf("sum of array element is : %d\n", sum);
 
     return 0;
 }
