@@ -1,36 +1,36 @@
 #include <stdio.h>
-
-int countVowels(const char *str)
-{
-
-    int count = 0;
-
-    for (int i = 0; str[i] != '\0'; i++)
-    {
-
-        char ch = str[i];
-
-        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
-
-            count++;
-
-        }
-    }
-
-    return count;
-
-}
+#include <limits.h>
 
 int main()
 {
 
-    char input[100];
+    int arr[] = {12, 32, 1, 10, 34, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    printf("Enter a string : ");
-    fgets(input, sizeof(input), stdin);
+    int first = INT_MIN, second = INT_MIN;
 
-    int vowelCount = countVowels(input);
-    printf("Number of vowels : %d\n", vowelCount);
+    for (int i = 0; i < n; i++)
+    {
+
+        if (arr[i] > first)
+        {
+            second = first;
+            first = arr[i];
+        }
+        else if (arr[i] > second && arr[i] != first)
+        {
+            second = arr[i];
+        }
+    }
+
+    if (second == INT_MIN)
+    {
+        printf("no second largest element\n");
+    }
+    else
+    {
+        printf("send largest element is %d\n", second);
+    }
 
     return 0;
 }
