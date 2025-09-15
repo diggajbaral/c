@@ -2,8 +2,13 @@
 
 int main() {
 
-    char name[] = "Alice";
-    printf("Name %s", name);
+    int a = 5;
+    int b = 12;
+    float result;
+
+    result = (float)a / b;
+
+    printf("Result = %.2f\n", result);
 
     return 0;
 }
