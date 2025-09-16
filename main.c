@@ -1,14 +1,33 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int main() {
+int main()
+{
+    int num, i, isPrime = 1;
 
-    int a = 5;
-    int b = 12;
-    float result;
+    printf("Enter a positive integer: ");
+    scanf("%d", &num);
 
-    result = (float)a / b;
+    if (num <= 1)
+    {
+        isPrime = 0;
+    }
+    else
+    {
 
-    printf("Result = %.2f\n", result);
+        for (i = 2; i <= num / 2; i++)
+        {
+            if (num % i == 0)
+            {
+                isPrime = 0;
+                break;
+            }
+        }
+    }
+
+    if (isPrime)
+        printf("%d is a prime number.\n", num);
+    else
+        printf("%d is not a prime number.\n", num);
 
     return 0;
 }
