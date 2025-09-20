@@ -10,8 +10,10 @@ int main() {
 
         printf("Error creating file.\n");
 
-        return 0;
+        return 1;
     }
+
+    fprintf(file, "I have total 8 repo at GitHub.\n");
 
     fclose(file);
     return 0;
