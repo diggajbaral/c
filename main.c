@@ -1,37 +1,49 @@
 #include <stdio.h>
+#include <string.h>
+
+void reverse(char *str, int start, int end) {
+
+    while (start < end) {
+
+        char temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
+        start++;
+        end--;
+
+    }
+
+}
+
+void reverseWords(char *str) {
+
+    int len = strlen(str);
+
+    reverse(str, 0, len - 1);
+
+    int start = 0;
+
+    for (int i = 0; i <= len; i++) {
+
+        if (str[i] == ' ' || str[i] == '\0') {
+
+            reverse(str, start, i - 1);
+            start = i + 1;
+
+        }
+
+    }
+
+}
 
 int main() {
-    FILE *file;
 
-    file = fopen("docs.txt", "w");
-    if (file == NULL) {
-        printf("Error creating file.\n");
-        return 1;
-    }
+    char str[] = "hello world this is C";
+    printf("Orginal : \"%s\"\n", str);
 
-    fprintf(file, "https://github.com/diggajbaral\n");
-    fprintf(file, "I have total 8 repo at GitHub.\n");
+    reverseWords(str);
 
-    fclose(file);
+    printf("Reversed : \"%s\"\n", str);
 
-    file = fopen("docs.txt", "r");
-    if (file == NULL) {
-        printf("Error opening file for reading.\n");
-        return 1;
-    }
-
-    printf("Content of the file :\n");
-    char line[256];
-    int line_count = 0;
-    while (fgets(line, sizeof(line), file)) {
-        printf("%s", line);
-        line_count++;
-    }
-
-    if (line_count == 0) {
-        printf("[No lines read from file]\n");
-    }
-
-    fclose(file);
     return 0;
 }
