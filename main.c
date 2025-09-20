@@ -2,8 +2,17 @@
 
 int main() {
 
-    printf('This is my last code for C\n');
-    printf('Now I am start JavaScript & C++');
+    FILE *file;
 
+    file = fopen("docs.txt", "w");
+
+    if (file == NULL) {
+
+        printf("Error creating file.\n");
+
+        return 0;
+    }
+
+    fclose(file);
     return 0;
 }
