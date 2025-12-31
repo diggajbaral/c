@@ -1,29 +1,24 @@
 #include <stdio.h>
 
-int main() {
+int main(){
 
-    int a[10], n, i, j, temp;
+    int number, reverse = 0, digit, orginal;
+
     printf("Enter number : ");
-    scanf("%d", &n);
+    scanf("%d", &number);
 
-    for(i = 0; i < n; i++) {
-        scanf("%d", &a[i]);
+    orginal = number;
+
+    while (number > 0) {
+        digit = number % 10;
+        reverse = reverse * 10 + digit;
+        number = number / 10;
     }
 
-    for(i = 0; i < n; i++) {
-        for (j = i + 1; j < n; j++) {
-            if (a[i] > a[j]) {
-                temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
-            }
-        }
-    }
-
-    printf("Sorted array:\n");
-
-    for (i = 0; i < n; i++) {
-        printf("%d ", a[i]);
+    if (orginal == reverse) {
+        printf("Palindrome");
+    } else {
+        printf("Not Palindrome");
     }
 
     return 0;
