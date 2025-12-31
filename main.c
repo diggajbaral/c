@@ -1,18 +1,11 @@
 #include <stdio.h>
 
+int add(int a, int b) {
+    return a + b;
+}
+
 int main() {
-
-    int n, fact = 1, i;
-
-    printf("Enter a number : ");
-    scanf("%d", &n);
-
-    for(i = 1; i <= n; i++) {
-        fact = fact * i;
-    }
-
-    printf("Factorial = %d", fact);
-
+    int result = add(5, 3);
+    printf("Sum = %d\n", result);
     return 0;
-
 }
