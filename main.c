@@ -2,26 +2,30 @@
 
 int main() {
 
-    int day;
-    printf("Enter day (1 - 7) : ");
-    scanf("%d", &day);
+    int a[10], n, i, j, temp;
+    printf("Enter number : ");
+    scanf("%d", &n);
 
-    switch (day) {
-        case 1 : printf("Sunday");
-            break;
-        case 2 : printf("Monday");
-            break;
-        case 3 : printf("Tuesday");
-            break;
-        case 4 : printf("Wednesday");
-            break;
-        case 5 : printf("Thursday");
-            break;
-        case 6 : printf("Friday");
-            break;
-        case 7 : printf("Saturday");
-            break;
-        default : printf("Invalid day!");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
     }
+
+    for(i = 0; i < n; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (a[i] > a[j]) {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+
+    printf("Sorted array:\n");
+
+    for (i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+
+    return 0;
 
 }
