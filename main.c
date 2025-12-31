@@ -1,30 +1,41 @@
 #include <stdio.h>
-#include <string.h>
-
-struct Student {
-
-    char name[50];
-    int roll;
-    float marks;
-
-};
 
 int main() {
 
-    struct Student s;
+    int n, search, first, middle, last;
 
-    printf("Enter Name : ");
-    scanf("%s", s.name);
+    printf("Enter number of books : ");
+    scanf("%d", &n);
 
-    printf("Enter roll number : ");
-    scanf("%d", &s.roll);
+    int books[n];
 
-    printf("Enter marks : ");
-    scanf("%f", &s.marks);
+    printf("Enter %d sorted book IDs: \n", n);
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &books[i]);
+    }
 
-    printf("\nStudent Name:\n");
-    printf("Name : %s\n", s.name);
-    printf("Roll Number : %d\n", s.roll);
-    printf("Marks : %.2f\n", s.marks);
+    printf("Enter book ID to search: ");
+    scanf("%d", &search);
+
+    first = 0;
+    last = n - 1;
+
+    while (first <= last) {
+        middle = (first + last) / 2;
+
+        if (books[middle] == search) {
+            printf("Book found at position %d/n", middle + 1);
+            return 0;
+        } else if (books[middle] < search) {
+            first = middle + 1;
+        } else {
+            last = middle -1;
+        }
+
+    }
+
+    printf("Books not found.\n");
+
+    return 0;
 
 }
