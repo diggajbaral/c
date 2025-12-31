@@ -7,11 +7,7 @@ int main() {
     printf("Enter age : ");
     scanf("%d", &age);
 
-    if (age > 18){
-        printf("Can Vote\n");
-    } else {
-        printf("Can't Vote");
-    }
+    age >= 18 ? printf("Can Drive") : printf("Can't Drive");
 
     return 0;
 
