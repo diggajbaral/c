@@ -1,26 +1,30 @@
 #include <stdio.h>
+#include <string.h>
 
-int main(){
+struct Student {
 
-    int number, reverse = 0, digit, orginal;
+    char name[50];
+    int roll;
+    float marks;
 
-    printf("Enter number : ");
-    scanf("%d", &number);
+};
 
-    orginal = number;
+int main() {
 
-    while (number > 0) {
-        digit = number % 10;
-        reverse = reverse * 10 + digit;
-        number = number / 10;
-    }
+    struct Student s;
 
-    if (orginal == reverse) {
-        printf("Palindrome");
-    } else {
-        printf("Not Palindrome");
-    }
+    printf("Enter Name : ");
+    scanf("%s", s.name);
 
-    return 0;
+    printf("Enter roll number : ");
+    scanf("%d", &s.roll);
+
+    printf("Enter marks : ");
+    scanf("%f", &s.marks);
+
+    printf("\nStudent Name:\n");
+    printf("Name : %s\n", s.name);
+    printf("Roll Number : %d\n", s.roll);
+    printf("Marks : %.2f\n", s.marks);
 
 }
